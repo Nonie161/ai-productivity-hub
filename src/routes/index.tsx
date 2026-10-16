@@ -25,7 +25,9 @@ const ICON = { email: Mail, research: BookOpen, chat: MessagesSquare };
 
 function Dashboard() {
   const [acts, setActs] = useState<Activity[]>([]);
-  useEffect(() => setActs(readActivity()), []);
+  useEffect(() => {
+    setActs(readActivity());
+  }, []);
   const hour = new Date().getHours();
   const greet = hour < 12 ? "Good morning" : hour < 18 ? "Good afternoon" : "Good evening";
 
