@@ -37,7 +37,7 @@ export const SUGGESTED_PROMPTS = [
 export function lastTopic(history: ChatMessage[]) {
   for (let i = history.length - 1; i >= 0; i--) {
     const m = history[i];
-    if (m.role !== "user") continue;
+    if (!m || m.role !== "user") continue;
     const hit = INTENTS.find((x) => x.match.test(m.content));
     if (hit) return hit;
   }
